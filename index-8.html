@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Abdelkarim Mouachiq – Data Scientist & AI Engineer, Master's in AI & Data Science, Québec Canada. Open to internships Fall 2026 / Winter 2027."/>
+  <meta name="keywords" content="Abdelkarim Mouachiq, Data Scientist, AI Engineer, Machine Learning, Deep Learning, NLP, Québec, Canada, Mitacs"/>
+  <meta name="author" content="Abdelkarim Mouachiq"/>
+  <title>Abdelkarim Mouachiq — Data Scientist & AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080c14;
+      --bg2: #0d1320;
+      --bg3: #111827;
+      --border: rgba(255,255,255,0.07);
+      --accent: #3b82f6;
+      --accent2: #06b6d4;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Space Grotesk', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(8,12,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 80px 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(59,130,246,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 30%, rgba(6,182,212,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1100px;
+      width: 100%;
+      align-items: center;
+    }
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .hero-name {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-title {
+      font-size: 1.1rem;
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--bg2);
+      letter-spacing: 0.05em;
+    }
+    .tag.blue { border-color: rgba(59,130,246,0.3); color: #93c5fd; background: rgba(59,130,246,0.07); }
+    .tag.cyan { border-color: rgba(6,182,212,0.3); color: #67e8f9; background: rgba(6,182,212,0.07); }
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 6px;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+    }
+    .btn-primary:hover { background: #2563eb; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: var(--bg2); }
+
+    /* Terminal card */
+    .terminal {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+    .terminal-bar {
+      background: var(--bg3);
+      padding: 0.6rem 1rem;
+      display: flex; align-items: center; gap: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot.r { background: #ff5f57; }
+    .dot.y { background: #febc2e; }
+    .dot.g { background: #28c840; }
+    .terminal-title { margin-left: auto; margin-right: auto; color: var(--muted); font-size: 0.7rem; }
+    .terminal-body { padding: 1.2rem 1.4rem; }
+    .line { margin-bottom: 0.4rem; color: #94a3b8; }
+    .line .prompt { color: var(--accent); }
+    .line .cmd { color: #e2e8f0; }
+    .line .out { color: #67e8f9; }
+    .line .comment { color: #475569; }
+    .line .green { color: #86efac; }
+    .line .yellow { color: #fde68a; }
+    .cursor {
+      display: inline-block;
+      width: 8px; height: 14px;
+      background: var(--accent);
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: #94a3b8;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .about-text p strong { color: var(--text); }
+    .about-list { list-style: none; }
+    .about-list li {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      color: #94a3b8;
+      font-size: 0.9rem;
+      display: flex; align-items: flex-start; gap: 0.6rem;
+    }
+    .about-list li::before {
+      content: '▸';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .about-list li strong { color: var(--text); }
+
+    /* SKILLS */
+    .skills-bg { background: var(--bg2); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .skill-card:hover { border-color: rgba(59,130,246,0.3); }
+    .skill-card-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-family: var(--mono);
+    }
+    .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: #94a3b8;
+    }
+
+    /* DOMAINS */
+    .domains-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+    .domain-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.4rem 1.6rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .domain-card:hover { border-color: rgba(59,130,246,0.25); transform: translateY(-2px); }
+    .domain-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .domain-name {
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin-bottom: 0.3rem;
+    }
+    .domain-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* CERTS */
+    .certs-bg { background: var(--bg2); }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .cert-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .cert-card:hover { border-color: rgba(59,130,246,0.3); }
+    .cert-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .cert-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .cert-issuer { font-size: 0.78rem; color: var(--muted); font-family: var(--mono); }
+
+    /* CONTACT */
+    .contact-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner .section-label { justify-content: center; display: block; }
+    .contact-inner .section-title { margin-bottom: 1rem; }
+    .contact-sub {
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .contact-links {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">abdelkarim@mouachiq:~$</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#domains">Work</a>
+    <a href="#certifications">Certs</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <h1 class="hero-name">Abdelkarim<br><span>Mouachiq</span></h1>
+      <p class="hero-title">Data Scientist & AI Engineer</p>
+      <div class="hero-tags">
+        <span class="tag blue">Machine Learning</span>
+        <span class="tag blue">Deep Learning</span>
+        <span class="tag cyan">LLMs & RAG</span>
+        <span class="tag cyan">AI Agents</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Reinforcement Learning</span>
+
+      </div>
+      <div class="hero-cta">
+        <a href="https://github.com/Karimartcode" class="btn btn-primary" target="_blank">GitHub Profile</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot r"></div>
+        <div class="dot y"></div>
+        <div class="dot g"></div>
+        <span class="terminal-title">profile.py</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line"><span class="comment"># Abdelkarim Mouachiq</span></div>
+        <div class="line">&nbsp;</div>
+        <div class="line"><span class="prompt">name</span> = <span class="out">"Abdelkarim Mouachiq"</span></div>
+        <div class="line"><span class="prompt">location</span> = <span class="out">"Canada & United States"</span></div>
+        <div class="line"><span class="prompt">role</span> = <span class="out">"Data Scientist & AI Engineer"</span></div>
+        <div class="line">&nbsp;</div>
+        <div class="line"><span class="prompt">education</span> = [</div>
+        <div class="line">&nbsp;&nbsp;<span class="out">"M.Sc AI & Data Science"</span>,</div>
+        <div class="line">&nbsp;&nbsp;<span class="out">"Eng. CS, Electronics"</span></div>
+        <div class="line">]</div>
+        <div class="line">&nbsp;</div>
+        <div class="line"><span class="prompt">focus</span> = <span class="out">"Anomaly Detection"</span></div>
+        <div class="line"><span class="comment"># VAE · CNN-LSTM architectures</span></div>
+        <div class="line">&nbsp;</div>
+
+        <div class="line"><span class="yellow">print</span>(<span class="out">"Let's build something."</span>)<span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">// 01 — about</div>
+    <h2 class="section-title">Who I am</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>Master's student in AI & Data Science</strong> and an engineering student in <strong>Computer Science, Electronics & Embedded Systems</strong>, with a strong mathematical background — MP* track and a Mathematics Olympiad podium.</p>
+        <p>I've completed <strong>three international internships</strong> across ML, Deep Learning and Data Science, and I'm currently building VAE-based CNN-LSTM architectures for anomaly detection.</p>
+        <p>I'm actively exploring <strong>LLMs, RAG pipelines, AI Agents, and Reinforcement Learning</strong> — always looking for the next hard problem to solve.</p>
+      </div>
+      <ul class="about-list">
+        <li><strong>Master's</strong> — Artificial Intelligence & Data Science</li>
+        <li><strong>Engineering</strong> — CS, Electronics & Embedded Systems</li>
+        <li><strong>3 international internships</strong> in ML & Data Science</li>
+        <li><strong>Math background</strong> — MP*, Olympiad podium</li>
+        <li><strong>Current project</strong> — Anomaly detection (VAE + CNN-LSTM)</li>
+
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-bg">
+  <div class="container">
+    <div class="section-label">// 02 — skills</div>
+    <h2 class="section-title">Tech Stack</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-title">Languages</div>
+        <div class="badges">
+          <span class="badge">Python</span><span class="badge">SQL</span><span class="badge">Java</span>
+          <span class="badge">C</span><span class="badge">R</span><span class="badge">VHDL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">ML & AI</div>
+        <div class="badges">
+          <span class="badge">PyTorch</span><span class="badge">TensorFlow</span><span class="badge">Keras</span>
+          <span class="badge">scikit-learn</span><span class="badge">XGBoost</span><span class="badge">HuggingFace</span>
+          <span class="badge">LangChain</span><span class="badge">spaCy</span><span class="badge">OpenCV</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Data & Visualization</div>
+        <div class="badges">
+          <span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">Matplotlib</span>
+          <span class="badge">Seaborn</span><span class="badge">Jupyter</span><span class="badge">Streamlit</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Databases</div>
+        <div class="badges">
+          <span class="badge">PostgreSQL</span><span class="badge">MongoDB</span><span class="badge">Neo4j</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Cloud & DevOps</div>
+        <div class="badges">
+          <span class="badge">AWS</span><span class="badge">Docker</span><span class="badge">Git</span>
+          <span class="badge">GitHub</span><span class="badge">FastAPI</span><span class="badge">Linux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DOMAINS -->
+<section id="domains">
+  <div class="container">
+    <div class="section-label">// 03 — what I work on</div>
+    <h2 class="section-title">Domains</h2>
+    <div class="domains-grid">
+      <div class="domain-card">
+        <div class="domain-icon">🤖</div>
+        <div>
+          <div class="domain-name">Machine Learning</div>
+          <div class="domain-desc">Classification, regression, ensemble methods, XGBoost, anomaly detection, time-series modeling</div>
+        </div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">🧠</div>
+        <div>
+          <div class="domain-name">Deep Learning</div>
+          <div class="domain-desc">CNNs, ResNet, RNN, LSTM, Transformers, transfer learning, VAE, GAN, autoencoders</div>
+        </div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">💬</div>
+        <div>
+          <div class="domain-name">NLP</div>
+          <div class="domain-desc">Text preprocessing, tokenization, NER, embeddings, LLMs, RAG pipelines, AI agents, summarization</div>
+        </div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">👁️</div>
+        <div>
+          <div class="domain-name">Computer Vision</div>
+          <div class="domain-desc">Image classification, medical imaging, Grad-CAM interpretability, object detection, data augmentation</div>
+        </div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">🎮</div>
+        <div>
+          <div class="domain-name">Reinforcement Learning</div>
+          <div class="domain-desc">Q-learning, DQN, policy gradients, reward shaping</div>
+        </div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">🔧</div>
+        <div>
+          <div class="domain-name">Data Engineering</div>
+          <div class="domain-desc">ETL pipelines, data cleaning, feature engineering, database design, Streamlit dashboards</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="certs-bg">
+  <div class="container">
+    <div class="section-label">// 04 — certifications</div>
+    <h2 class="section-title">Credentials</h2>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">ML Specialization</div>
+        <div class="cert-issuer">Stanford Online</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-name">AWS Cloud Practitioner</div>
+        <div class="cert-issuer">Amazon Web Services</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">✨</div>
+        <div class="cert-name">Generative AI</div>
+        <div class="cert-issuer">Microsoft</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🗄️</div>
+        <div class="cert-name">Data Engineering</div>
+        <div class="cert-issuer">IBM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label">// 05 — contact</div>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="contact-sub">
+  
+        Based in Canada & United States of America.<br>
+        Also open to collaborations on AI, ML and Data Science projects.
+      </p>
+      <div class="contact-links">
+        <a href="https://github.com/Karimartcode" class="btn btn-primary" target="_blank">GitHub</a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Abdelkarim Mouachiq · Data Scientist & AI Engineer · Canada & United States · github.com/Karimartcode</p>
+</footer>
+
+</body>
+</html>
